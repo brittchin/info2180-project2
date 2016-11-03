@@ -52,40 +52,23 @@ function movePiece(piece){
 		case "right":
 			piece.style.left = parseInt(piece.style.left)+100 +"px";
 			blankTile-=1;
-			str=piece.textContent;
-			// shift();
 			break;
 		case "left":
 			piece.style.left = parseInt(piece.style.left)-100 +"px";
 			blankTile+=1;
-			str=piece.textContent;
-			// shift();
 			break;
 		case "down":
 			piece.style.top = parseInt(piece.style.top)+100 +"px";
 			blankTile-=4;
-			str=piece.textContent;
-			// shift();
 			break;
 		case "up":
 			piece.style.top = parseInt(piece.style.top)-100 +"px";
 			blankTile+=4;
-			str=piece.textContent;
-			// shift();
 			break;
 		default:
 			break;
 	}
 }
-
-// function shift(){
-// 	var x = 0;
-// 	for(var i=0; i<puzzle.length;i++){
-// 		if(puzzle[i].textContent===str){
-// 			x=i;	
-// 		}
-// 	}
-// }
 
 function shuffleMovable(piece){
 		if((parseInt(piece.style.left)+parseInt(piece.offsetWidth)) === parseInt(getBlankTileX()) && piece.style.top===getBlankTileY()){
@@ -127,19 +110,11 @@ function shuffleMove(piece){
 
 function shufflePuzzle(){
 	for (var i = 0; i <100; i++) {
-		var numArray = [];
-		for (var x = 0; x < puzzle.length; x++) {
-			if(shuffleMovable(puzzle[x])!="noMove"){
-				numArray.push[x]
-			}
-		}
-		if(numArray.length!=0){
-			var r = numArray[Math.floor(Math.random() *numArray.length)];
+			var r = Math.floor(Math.random() *15);
 			shuffleMovable(puzzle[r]);
 			shuffleMove(puzzle[r]);
 		}
 		move = "noMove";
-	}
 }
 
 function getBlankTileX(){
